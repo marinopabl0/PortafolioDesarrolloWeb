@@ -1,0 +1,542 @@
+// destop menu
+.header-section {
+    .ht-soc-list {
+        .soc-lists {
+            ul {
+                li {
+                    @extend %flex;
+                    padding: 0 20px;
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                    .socl-icon {
+                        margin-right: 15px;
+                    }
+                    .socl-content {
+                        h6 {
+                            margin-bottom: 0;
+                        }
+                        p {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .menu-sco {
+        @include breakpoint(max-lg) {
+            width: 100%;
+            justify-content: center;
+            border-top: 1px solid #ffffff36;
+        
+        }
+        .search, .cart-option, .header-btn {
+            padding: 25px 20px;
+            border-right: 1px solid #ffffff36;
+            @include breakpoint(lg) {
+                border-color: $border-color;
+            }
+            @include breakpoint(max-lg) {
+                color: $white-color;
+            }
+            i {
+                @extend %pointer;
+            }
+        }
+        .search {
+            border-left: 1px solid #ffffff36;
+            @include breakpoint(lg) {
+                border-color: $border-color;
+            }
+        }
+        .cart-option {
+            @extend %rel;
+            &.open {
+                .cart-content {
+                    transform: scaleY(1);
+                }
+            }
+        }
+    }
+    .header-top {
+        padding: 20px 0;
+        border-bottom: 1px solid $border-color;
+        .ht-logo {
+            @include breakpoint(lg) {
+                @include breakpoint(max-xl) {
+                    width: 100%;
+                    text-align: center;
+                    padding-bottom: 25px;
+                }
+            }
+        }
+    }
+    .header-bottom {
+        @include breakpoint(max-lg) {
+            position: relative;
+        }
+        .hma-logo {
+            padding-right: 20px;
+        }
+    }
+    .primary-menu {
+        @extend %flex;
+        align-items: center;
+        justify-content: space-between;
+        @include breakpoint(max-lg) {
+            padding: 15px 0;
+        }
+        &.open {
+            .main-area {
+                @include transform(scaleY(1));
+            }
+        }
+        .logo {
+            @include breakpoint(lg) {
+                @include breakpoint(max-xl) {
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px 0;
+                    border-bottom: 1px solid #ffffff26;
+                }
+            }
+            a {
+                display: inline-block;
+                img {
+                    display: block;
+                }
+            }
+        }
+        .main-area {
+            @extend %flex;
+            align-items: center;
+            @include breakpoint(lg) {
+                @include breakpoint(max-xl) {
+                    width: 100%;
+                    justify-content: space-between; 
+                }
+            }
+            @include breakpoint(max-lg) {
+                align-items: center;
+                background: $theme-color;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 100%;
+                transform-origin: top;
+                z-index: 99;
+                @include transition($transition);
+                @include transform(scaleY(0));
+            }
+            .main-menu {
+                @include breakpoint(max-lg) {
+                    width: 100%;
+                }
+                ul {
+                    @extend %flex;
+                    padding: 0;
+                    margin: 0;
+                    li {
+                        padding: 0;
+                        @include breakpoint(max-lg) {
+                            width: 100%;
+                            &:last-child {
+                                a {
+                                    border-bottom: none;
+                                }
+                            }
+                        }
+                        a {
+                            padding: 25px 20px;
+                            color: $title-color;
+                            font-size: $fs-base;
+                            text-transform: uppercase;
+                            display: inline-block;
+                            font-weight: 600;
+                            @include transition($transition);
+                            @include breakpoint(max-lg) {
+                                padding: 10px 20px;
+                                display: block;
+                                color: $white-color;
+                                border-bottom: 1px solid #ffffff36;
+                            }
+                        }
+                        ul {
+                            @include breakpoint(max-lg) {
+                                width: 100%;
+                                display: none;
+                                position: static;
+                            }
+                            @include breakpoint(lg) {
+                                transform: scaleY(0);
+                                position: absolute;
+                                min-width: 240px;
+                                background: $white-color;
+                                box-shadow: 0 0 5px rgba(136, 136, 136, .10);
+                                display: block;
+                                top: 100%;
+                                transform-origin: top;
+                                z-index: 9;
+                                @include transition($transition);
+                            }
+
+                            li {
+                                a {
+                                    font-size: 90%;
+                                    padding: 10px 20px;
+                                    width: 100%;
+                                    border-bottom: 1px solid #ecf0f336;
+                                    @include breakpoint(lg) {
+                                        border-bottom: 1px solid $border-color;
+                                    }
+                                    &:hover {
+                                        padding-left: 20px;
+                                        color: $white-color;
+                                        background: $theme-color;
+                                    }
+                                }
+                                &.active {
+                                    >a {
+                                        color: $white-color !important;
+                                        background: $theme-color;
+                                    }
+                                }
+                                &:last-child {
+                                    a {
+                                        border-bottom: none;
+                                    }
+                                }
+                                &.menu-item-has-children {
+                                    margin-right: 0px;
+                                    a {
+                                        &::after {
+                                            right: 15px;
+                                            transform: translateY(-50%) rotate(-90deg);
+                                        }
+                                    }
+                                }
+                                ul {
+                                    left: 100%;
+                                    top: 0;
+                                }
+                            }
+                        }
+                        &.menu-item-has-children {
+                            position: relative;
+                            >a {
+                                @extend %rel;
+                                &::after {
+                                    @extend %abs;
+                                    top: 50%;
+                                    right: 20px;
+                                    transform: translateY(-50%);
+                                    font-weight: 400;
+                                    content: "\ea99" !important;
+                                    font-family: IcoFont !important;
+                                    @include breakpoint(lg) {
+                                        right: 0;
+                                    }
+                                }
+                            }
+                        }
+                        &:hover{
+                            >ul {
+                                @include breakpoint(lg) {
+                                    transform: scaleY(1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .header-btn {
+                .lab-btn {
+                    display: block;
+                }
+                a {
+                    text-transform: uppercase;
+                    font-weight: 600;
+                }
+                @include breakpoint(max-lg) {
+                    a {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+        .header-bar {
+            font-size: 30px;
+            color: $title-color;
+            @extend %pointer;
+            i {
+                &:last-child {
+                    display: none;
+                }
+            }
+            &.close {
+                color: $title-color;
+                opacity: 1;
+                i {
+                    &:first-child {
+                        display: none;
+                    }
+                    &:last-child {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    
+    &.menu-fixed {
+        background: $white-color;
+        box-shadow: 0 0 3px rgba(136, 136, 136, .10);
+        position: sticky;
+        width: 100%;
+        z-index: 99;
+        top: 0;
+        .header-top {
+            display: none !important;
+        }
+        .primary-menu {
+            &.open {
+                .main-area {
+                    @include breakpoint(max-lg) {
+                        height: 300px;
+                        overflow-y: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.header-style-2 {
+    top: 0;
+    &.menu-fixed  {
+        background-image: linear-gradient(to right top, #4b07fe, #6d1ff9, #8431f5, #9741f1, #a651ed);
+    }
+    .primary-menu {
+        border-bottom: 1px solid #ecf0f31a;
+        .main-area {
+            .main-menu {
+                ul {
+                    li {
+                        &:last-child {
+                            a {
+                                border-bottom: none;
+                            }
+                        }
+                        a {
+                            color: $title-color;
+                            padding: 35px 20px;
+                            @include breakpoint(max-lg) {
+                                padding: 10px 20px;
+                                border-bottom: 1px solid #ffffff36;
+                            }
+                        }
+                    }
+                }
+            }
+            .menu-sco {
+                @extend %flex;
+                justify-content: center;
+                @include breakpoint(xl) {
+                    margin-left: 20px;
+                }
+                .search, .cart-option, .bar-area {
+                    padding: 25px 10px;
+                    border-right: 1px solid #ecf0f31a;
+                    @include breakpoint(xl) {
+                        padding: 25px 20px;
+                    }
+                    > i, > span {
+                        width: 50px;
+                        height: 50px;
+                        line-height: 50px;
+                        text-align: center;
+                        display: inline-block;
+                        cursor: pointer;
+                        @include border-radius(100%);
+                        &.count-item {
+                            @extend %abs;
+                            width: 24px;
+                            height: 24px;
+                            color: $theme-color;
+                            background: $white-color;
+                            line-height: 24px;
+                            font-size: 12px;
+                            top: 14px;
+                            left: 34px;
+                            @include breakpoint(100%);
+                            @include breakpoint(lg) {
+                                @include breakpoint(max-xl) {
+                                    left: 22px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .search {
+                    @extend %rel;
+                    border-left: 1px solid #ecf0f31a;
+                    &:hover {
+                        .search-input {
+                            transform: scaleX(1);
+                        }
+                    }
+                    i {
+                        color: $white-color;
+                        background: linear-gradient(to left, #23cc88, #8ecf35);
+                    }
+                }
+                .bar-area {
+                    &.open {
+                        span {
+                            background: linear-gradient(to right, #ff4f58, #ffb400);
+                            &:first-child{
+                                display: none;
+                            }
+                            &:last-child {
+                                display: block;
+                            }
+                        }
+                    }
+                    span {
+                        color: $white-color;
+                        font-size: 24px;
+                        background: $theme-color;
+                        &:last-child {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        .header-bar {
+            color: $white-color;
+            &.close {
+                color: $white-color;
+            }
+        }
+    }
+    &.style-1 {
+        .primary-menu .main-area .menu-sco .search i, .primary-menu .main-area .menu-sco .cart-option > span.count-item {
+            background: $theme-color;
+            color: $white-color;
+        }
+        .primary-menu .main-area .menu-sco .search {
+            border-left: 1px solid #ecf0f3;
+        }
+        .primary-menu .main-area .menu-sco .cart-option, .primary-menu .main-area .menu-sco .search {
+            border-right: 1px solid #ecf0f3;
+        }
+    }
+    &.style-2 {
+        @include breakpoint(max-lg) {
+            position: relative;
+            .primary-menu {
+                .header-bar {
+                    color: $title-color;
+                    &.close {
+                        color: $title-color;
+                    }
+                }
+                .main-area {
+                    background: $ash-color;
+                    .main-menu ul li {
+                        a {
+                            border-bottom: 1px solid #ecf0f3;
+                        }
+                        ul {
+                            li {
+                                a {
+                                    color: $title-color;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .menu-sco .cart-option > span {
+                        color: $white-color;
+                        background: $theme-color;
+                    }
+                    .menu-sco .search {
+                        border-left: 1px solid #ecf0f3;
+                    }
+                }
+            }
+            .primary-menu .main-area .menu-sco .cart-option, .primary-menu .main-area .menu-sco .search {
+                border-right: 1px solid #ecf0f3;
+            }
+        }
+        &.menu-fixed  {
+            background: $white-color;
+        }
+        .primary-menu .main-area .menu-sco .search {
+            border-right: 1px solid #ecf0f3b8;
+            border-left: 1px solid #ecf0f3b8;
+        }
+        .primary-menu .main-area .menu-sco .cart-option {
+            border-right: 1px solid #ecf0f3b8;
+        }
+        .primary-menu .main-area .menu-sco .cart-option > span.count-item {
+            background: $theme-color;
+            color: $white-color;
+        }
+        .primary-menu .main-area .menu-sco .search i {
+            background: $theme-color;
+        }
+        .logo {
+            @include breakpoint(lg) {
+                @include breakpoint(max-xl) {
+                    border-bottom: 1px solid #cec4c424;
+                }
+            }
+        }
+        
+        .cart-content {
+            @include breakpoint(max-sm) {
+                right: -90px;
+            }
+        }
+    }
+}
+
+.transparent-header {
+    @extend %abs;
+    width: 100%;
+    z-index: 999;
+    .primary-menu .main-area .main-menu ul li a {
+        color: $white-color;
+    }
+    .primary-menu .main-area .main-menu ul li ul li a {
+        @include breakpoint(lg) {
+            color: $title-color;
+        }
+    }
+}
+.innerpage-header {
+    .primary-menu .main-area .menu-sco .search i, .primary-menu .main-area .menu-sco .cart-option > span.count-item {
+        background: #2cc374;
+        color: $white-color;
+    }
+    .primary-menu .main-area .menu-sco .bar-area span {
+        background: #ff6866;
+    }
+    &.menu-fixed {
+        background: #9f4bee;
+    }
+    .primary-menu .main-area {
+        @include breakpoint(max-lg) {
+            background: #9f4bee;
+        }
+    }
+    .primary-menu .main-area .main-menu ul li ul li.active > a {
+        @include breakpoint(max-lg) {
+            color: #9f4bee !important;
+            background: $white-color;
+        }
+    }
+}

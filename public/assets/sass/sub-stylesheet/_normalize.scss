@@ -1,0 +1,189 @@
+/*!
+Template Name: CraftPoint
+Template URI: https://Template.net/user/labartisan
+Author: labartisan.net
+Author URI: https://Template.net/user/labartisan
+Description: CraftPoint - Multipurpose Business And Agency HTML Template
+Version: 1.0.0
+Text Domain: CraftPoint
+Tags: agency, business, corporate, creative, design, illustration, marketing, multipurposeAgency landing, portfolio, psd, seo, startup, ui
+
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Global CSS
+# Header CSS
+	*Mobile Header
+# Banner Section
+# Page Header
+# Service Section
+	* Style-1
+	* Style-2
+	* Style-3
+	* Style-4
+	* Service Single
+# About Section
+	* Style-1
+	* Style-2
+	* Style-3
+	* Style-4
+# Clients Range Section
+	* Style-1
+	* Style-2
+	* Style-3
+# Market Agency Section
+	* Style-1
+	* Style-2
+# Pricing Table
+# Testimonial Section
+	* Style-1
+	* Style-2
+	* Style-3
+# Sponsor Section
+	* Style-1
+	* Style-2
+# Portfolio Section
+	* Style-1
+	* Style-2
+	* Style-3
+	* Style-4
+	* Style-5
+	* Portfolio Single
+# Team Member Section
+	* Style-1
+	* Style-2
+	* Team Single
+# Case Single Section
+# Consultation Section
+# Business Contact
+# Business Analysis
+	* Style-1
+	* Style-2
+# blog-section
+	* Style-1
+	* blog-page
+	* blog-single
+# Widget
+# Maps Section
+# News Letter
+# Dashbord Section
+# Shop Page
+# Shop Single
+# Shop Cart
+# Contact Us
+# Four Zero Section
+
+--------------------------------------------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;}
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background: $white-color;
+}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: $desc-color;
+	font-family: $roboto;
+	font-size: $fs-base;
+	line-height: $lh-p;}
+
+h1, h2, h3, h4, h5, h6  {
+	clear: both;
+	font-weight: 600;
+	line-height: 1.4;
+	font-family: $poppins;
+	color: $title-color;}
+h1 {
+	font-size: $fs-h1;}
+h2{
+	font-size: $fs-h4;}
+h3 {
+	font-size: $fs-h4;}
+h4 {
+	font-size:$fs-h5;}
+h5 {
+ 	font-size: $fs-h5;}
+h6 {
+	font-size: $fs-h6;}
+@include breakpoint(sm) {
+	h1 {
+		font-size: $fs-h1;
+		line-height: $lh-h1;}
+	h2{
+		font-size: $fs-h2;
+		line-height: $lh-h2;}
+	h3 {
+		font-size: $fs-h3;
+		line-height: $lh-h3;}
+	h4 {
+		font-size:$fs-h4;
+		line-height: $lh-h4;}
+	h5 {
+		font-size: $fs-h5;
+		line-height: $lh-h5;}
+	h6 {
+		font-size: $fs-h6;}
+}
+p {
+	font-weight: 400;
+	font-size: 16px;}
+a {
+	color: $title-color;
+	text-decoration: none;
+	@include transition($transition);}
+a:hover, a:focus, a:active {
+	color: $title-color;
+	text-decoration: none;
+	outline: none;}
+
+a:hover, a:active {
+	outline: 0;}
+img {
+	height: auto;
+	max-width: 100%;}
+input, textarea, select {
+	width: 100%;
+	margin-bottom: 15px;
+	border: 1px solid $border-color;
+	outline: none;
+	padding: 10px 20px;
+	outline: none;
+	@include border-radius(3px);}
+select {
+	border: 1px solid $border-color;}
+textarea {
+	width: 100%;
+	outline: none;}
+button {
+	@extend %pointer;
+	&.lab-btn {
+		box-shadow: none;
+		border: none;
+		outline: none;
+	}
+}
+article {
+	@include breakpoint(max-lg) {
+		margin-bottom: 40px;
+	}
+}
+
+@include breakpoint(xl) {
+	.container, .container-lg, .container-md, .container-sm, .container-xl {
+		max-width: 1200px;
+	}
+}
